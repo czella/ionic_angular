@@ -13,10 +13,10 @@ export class RecipesService {
       ingredients: ['French fries', 'Pork meat', 'Salad']
     },
     {
-      id: 'r1',
-      title: 'Schnitzel2',
-      imageUrl: 'https://www.thespruceeats.com/thmb/VYxi1MPOLh3W286dhp270ozcjrY=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/wiener-schnitzel-recipe-1447089-Hero-5b587d6c46e0fb0071b0059d.jpg',
-      ingredients: ['French fries2', 'Pork meat2', 'Salad2']
+      id: 'r2',
+      title: 'Spaghetti',
+      imageUrl: 'https://www.inspiredtaste.net/wp-content/uploads/2019/03/Spaghetti-with-Meat-Sauce-Recipe-1-1200.jpg',
+      ingredients: ['Pasta', 'Sauce', '']
     }
   ];
   constructor() { }
@@ -25,5 +25,10 @@ export class RecipesService {
   }
   getRecipe(recipeId: string) {
     return {...this.recipes.find(recipe => recipe.id === recipeId)};
+  }
+  deleteRecipe(recipeId: string) {
+    this.recipes = this.recipes.filter(recipe => {
+      return recipe.id !== recipeId;
+    });
   }
 }
